@@ -1,0 +1,6 @@
+binary_sensor:
+  - platform: ibutton
+    id: ibutton_key
+    one_wire_bus: !get [one_wire, 0]
+    read_rom_command: 0x33
+    update_interval: 60s
