@@ -14,8 +14,8 @@ class IButtonComponent : public Component, public BinarySensor {
     void log_serial_number() const;
 
  protected:
-    const one_wire::OneWireBus* bus_{nullptr};  // Однонаправленная шина
-    uint8_t read_rom_command_;                 // Команда для чтения серийника
+    const one_wire::OneWireBus* bus_{nullptr};  // Один провод для коммуникации
+    uint8_t read_rom_command_;                 // Команда для чтения серийного номера
 };
 
 }  // namespace esphome
