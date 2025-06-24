@@ -6,6 +6,7 @@
 #include "esphome/components/onewire/one_wire.h"
 
 namespace esphome {
+namespace ibutton {
 
 class IButtonComponent : public Component, public BinarySensor {
  public:
@@ -18,6 +19,7 @@ class IButtonComponent : public Component, public BinarySensor {
     uint8_t read_rom_command_;                 // Команда для чтения серийного номера
 };
 
+}  // namespace ibutton
 }  // namespace esphome
 
 #endif  // ESPHOME_IBUTTON_COMPONENT_H_
