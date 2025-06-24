@@ -5,6 +5,7 @@
 #include "ibutton_component.h"
 
 namespace esphome {
+namespace ibutton {
 
 void IButtonComponent::log_serial_number() const {
     uint8_t serial_number[8];
@@ -22,4 +23,5 @@ void IButtonComponent::log_serial_number() const {
     ESP_LOGD(TAG, "Серийный номер iButton: %s", buffer);  // Записываем серийник в лог
 }
 
+}  // namespace ibutton
 }  // namespace esphome
