@@ -1,6 +1,11 @@
+# Пример конфигурации для ESPHome
+one_wire:
+  - platform: gpio
+    pin: 13  # Заданный вами вывод GPIO
+
 binary_sensor:
   - platform: ibutton
     id: ibutton_key
-    one_wire_bus: !get [one_wire, 0]
+    one_wire_bus: !get [one_wire, 0]  # Первая найденная шина One-Wire
     read_rom_command: 0x33
     update_interval: 60s
