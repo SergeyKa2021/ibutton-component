@@ -1,0 +1,13 @@
+{
+  "domain": "ibutton",
+  "name": "iButton Key Reader",
+  "version": "1.0.0",
+  "requirements": [],
+  "dependencies": [
+    "onewire",
+    "gpio"
+  ],
+  "config_flow": false,
+  "documentation": "",
+  "issue_tracker": ""
+}
