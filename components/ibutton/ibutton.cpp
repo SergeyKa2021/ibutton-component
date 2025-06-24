@@ -2,7 +2,7 @@
 
 ```cpp
 #include "esphome/core/log.h"
-#include "ibutton_component.h"
+#include "ibutton.h"
 
 namespace esphome {
 namespace ibutton {
