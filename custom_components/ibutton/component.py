@@ -1,0 +1,36 @@
+import esphome.codegen as cg
+import esphome.config_validation as cv
+from esphome.components import binary_sensor
+from esphome.const import CONF_ID, CONF_UPDATE_INTERVAL, DEVICE_CLASS_CONNECTIVITY
+from esphome.core.entity_helpers import inherit_property_from
+
+from .const import CONF_ONE_WIRE_BUS, CONF_READ_ROM_COMMAND, DEFAULT_IBUTTON_READ_ROM_COMMAND
+
+CODEOWNERS = ["@your_github_username"]  # Измените на ваше имя пользователя
+DEPENDENCIES = ["onewire", "gpio"]
+MULTI_CONF = True
+
+IButtonComponent = cg.global_ns.class_("IButtonComponent", binary_sensor.BinarySensor, cg.Component)
+
+CONFIG_SCHEMA = cv.Schema(
+    {
+        cv.GenerateID(): cv.declare_id(IButtonComponent),
+        cv.Required(CONF_ONE_WIRE_BUS): cv.use_id(cg.Component),
+        cv.Optional(CONF_READ_ROM_COMMAND, default=DEFAULT_IBUTTON_READ_ROM_COMMAND): cv.hex_uint8_t,
+        cv.Optional(CONF_UPDATE_INTERVAL, default='60s'): cv.update_interval,
+    }
+).extend(cv.COMPONENT_SCHEMA)
+
+async def to_code(config):
+    var = cg.new_Pvariable(config[CONF_ID])
+    await cg.register_component(var, config)
+    await binary_sensor.register_binary_sensor(var, config)
+
+    one_wire_bus = await cg.get_variable(config[CONF_ONE_WIRE_BUS])
+    cg.add(var.set_one_wire_bus(one_wire_bus))
+    cg.add(var.set_read_rom_command(config[CONF_READ_ROM_COMMAND]))
+    cg.add(var.set_update_interval(config[CONF_UPDATE_INTERVAL].total_seconds()))
+
+    # Логирование результата
+    log_stmt = f"{var._var_name}.log_serial_number();"
+    cg.add(RawStatement(log_stmt))
