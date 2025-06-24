@@ -1,4 +1,7 @@
 # Пример конфигурации для ESPHome
+custom_components:
+https://github.com/sergeyka2021/ibutton-component.git
+
 one_wire:
   - platform: gpio
     pin: 13  # Заданный вами вывод GPIO
