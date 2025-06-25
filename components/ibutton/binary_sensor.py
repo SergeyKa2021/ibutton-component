@@ -24,10 +24,10 @@ IButtonComponent = ibutton_ns.class_(
 )
 
 CONFIG_SCHEMA = (
-    binary_sensor.binary_sensor_schema(EmptyBinarySensor)
+    binary_sensor.binary_sensor_schema(IButtonComponent)
     .extend(
         {
-            cv.GenerateID(): cv.declare_id(EmptyBinarySensor),
+            cv.GenerateID(): cv.declare_id(IButtonComponent),
         }
     )
     .extend(cv.COMPONENT_SCHEMA)
