@@ -20,7 +20,7 @@ ibutton_ns = cg.esphome_ns.namespace("ibutton")
 IButtonComponent = ibutton_ns.class_(
     "IButtonComponent", 
     binary_sensor.BinarySensor, 
-    cg.Component
+#    cg.Component
 )
 
 CONFIG_SCHEMA = cv.Schema(
@@ -33,7 +33,7 @@ CONFIG_SCHEMA = cv.Schema(
 ).extend(cv.COMPONENT_SCHEMA)
 
 async def to_code(config):
-    var = cg.new_Pvariable(config[CONF_ID])
+#    var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
     await binary_sensor.register_binary_sensor(var, config)
 
@@ -43,5 +43,5 @@ async def to_code(config):
     cg.add(var.set_update_interval(config[CONF_UPDATE_INTERVAL].total_seconds()))
 
     # Логирование результата
-    log_stmt = f"{var._var_name}.log_serial_number();"
-    cg.add(RawStatement(log_stmt))
+ #   log_stmt = f"{var._var_name}.log_serial_number();"
+ #   cg.add(RawStatement(log_stmt))
