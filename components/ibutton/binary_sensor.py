@@ -10,7 +10,14 @@ CODEOWNERS = ["@SergeyKa2021"]  # Измените на ваше имя поль
 DEPENDENCIES = ["onewire", "gpio"]
 MULTI_CONF = True
 
-IButtonComponent = cg.global_ns.class_("IButtonComponent", binary_sensor.BinarySensor, cg.Component)
+ibutton_ns = cg.esphome_ns.namespace("ibutton")
+
+IButtonComponent = ibutton_ns.class_(
+    "IButtonComponent", 
+    binary_sensor.BinarySensor, 
+    cg.Component, 
+    one_wire.OneWireDevice
+)
 
 CONFIG_SCHEMA = cv.Schema(
     {
