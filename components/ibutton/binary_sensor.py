@@ -4,7 +4,7 @@ from esphome.components import binary_sensor
 from esphome.const import CONF_ID, CONF_UPDATE_INTERVAL, DEVICE_CLASS_CONNECTIVITY
 from esphome.core.entity_helpers import inherit_property_from
 
-from .const import CONF_ONE_WIRE_BUS, CONF_READ_ROM_COMMAND, DEFAULT_IBUTTON_READ_ROM_COMMAND
+#from .const import CONF_ONE_WIRE_BUS, CONF_READ_ROM_COMMAND, DEFAULT_IBUTTON_READ_ROM_COMMAND
 
 CODEOWNERS = ["@SergeyKa2021"]  # Измените на ваше имя пользователя
 DEPENDENCIES = ["onewire", "gpio"]
@@ -15,8 +15,7 @@ ibutton_ns = cg.esphome_ns.namespace("ibutton")
 IButtonComponent = ibutton_ns.class_(
     "IButtonComponent", 
     binary_sensor.BinarySensor, 
-    cg.Component, 
-    one_wire.OneWireDevice
+    cg.Component
 )
 
 CONFIG_SCHEMA = cv.Schema(
