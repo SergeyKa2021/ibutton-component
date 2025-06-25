@@ -28,6 +28,7 @@ CONFIG_SCHEMA = (
     .extend(
         {
             cv.GenerateID(): cv.declare_id(IButtonComponent),
+            cv.Optional(CONF_UPDATE_INTERVAL, default='60s'): cv.update_interval
         }
     )
     .extend(cv.COMPONENT_SCHEMA)
