@@ -26,8 +26,8 @@ IButtonComponent = ibutton_ns.class_(
 CONFIG_SCHEMA = cv.Schema(
     {
         cv.GenerateID(): cv.declare_id(IButtonComponent),
-        cv.Required(CONF_ONE_WIRE_BUS): cv.use_id(cg.Component),
-        cv.Optional(CONF_READ_ROM_COMMAND, default=DEFAULT_IBUTTON_READ_ROM_COMMAND): cv.hex_uint8_t,
+//        cv.Required(CONF_ONE_WIRE_BUS): cv.use_id(cg.Component),
+//        cv.Optional(CONF_READ_ROM_COMMAND, default=DEFAULT_IBUTTON_READ_ROM_COMMAND): cv.hex_uint8_t,
         cv.Optional(CONF_UPDATE_INTERVAL, default='60s'): cv.update_interval,
     }
 ).extend(cv.COMPONENT_SCHEMA)
@@ -37,9 +37,9 @@ async def to_code(config):
     await cg.register_component(var, config)
     await binary_sensor.register_binary_sensor(var, config)
 
-    one_wire_bus = await cg.get_variable(config[CONF_ONE_WIRE_BUS])
-    cg.add(var.set_one_wire_bus(one_wire_bus))
-    cg.add(var.set_read_rom_command(config[CONF_READ_ROM_COMMAND]))
+//    one_wire_bus = await cg.get_variable(config[CONF_ONE_WIRE_BUS])
+//    cg.add(var.set_one_wire_bus(one_wire_bus))
+//    cg.add(var.set_read_rom_command(config[CONF_READ_ROM_COMMAND]))
     cg.add(var.set_update_interval(config[CONF_UPDATE_INTERVAL].total_seconds()))
 
     # Логирование результата
