@@ -10,6 +10,11 @@ CODEOWNERS = ["@SergeyKa2021"]  # Измените на ваше имя поль
 DEPENDENCIES = ["onewire", "gpio"]
 MULTI_CONF = True
 
+CONF_ONE_WIRE_BUS = 0
+CONF_READ_ROM_COMMAND = 0x33
+DEFAULT_IBUTTON_READ_ROM_COMMAND = 0x33
+
+
 ibutton_ns = cg.esphome_ns.namespace("ibutton")
 
 IButtonComponent = ibutton_ns.class_(
