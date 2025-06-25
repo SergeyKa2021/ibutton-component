@@ -23,14 +23,14 @@ IButtonComponent = ibutton_ns.class_(
 #    cg.Component
 )
 
-#CONFIG_SCHEMA = cv.Schema(
-#    {
-#        cv.GenerateID(): cv.declare_id(IButtonComponent),
+CONFIG_SCHEMA = cv.Schema(
+    {
+        cv.GenerateID(): cv.declare_id(IButtonComponent),
 #        cv.Required(CONF_ONE_WIRE_BUS): cv.use_id(cg.Component),
 #        cv.Optional(CONF_READ_ROM_COMMAND, default=DEFAULT_IBUTTON_READ_ROM_COMMAND): cv.hex_uint8_t,
 #        cv.Optional(CONF_UPDATE_INTERVAL, default='60s'): cv.update_interval,
-#    }
-#).extend(cv.COMPONENT_SCHEMA)
+    }
+).extend(cv.COMPONENT_SCHEMA)
 
 async def to_code(config):
 #    var = cg.new_Pvariable(config[CONF_ID])
