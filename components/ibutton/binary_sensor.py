@@ -7,7 +7,7 @@ from esphome.core.entity_helpers import inherit_property_from
 #from .const import CONF_ONE_WIRE_BUS, CONF_READ_ROM_COMMAND, DEFAULT_IBUTTON_READ_ROM_COMMAND
 
 CODEOWNERS = ["@SergeyKa2021"]  # Измените на ваше имя пользователя
-#DEPENDENCIES = ["onewire", "gpio"]
+DEPENDENCIES = ["one_wire", "gpio"]
 MULTI_CONF = True
 
 CONF_ONE_WIRE_BUS = 0
