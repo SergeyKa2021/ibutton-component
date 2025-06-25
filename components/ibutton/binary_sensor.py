@@ -50,7 +50,7 @@ async def to_code(config):
 #    one_wire_bus = await cg.get_variable(config[CONF_ONE_WIRE_BUS])
 #    cg.add(var.set_one_wire_bus(one_wire_bus))
 #    cg.add(var.set_read_rom_command(config[CONF_READ_ROM_COMMAND]))
-    cg.add(var.set_update_interval(config[CONF_UPDATE_INTERVAL].total_seconds()))
+#    cg.add(var.set_update_interval(config[CONF_UPDATE_INTERVAL].total_seconds()))
 
     # Логирование результата
  #   log_stmt = f"{var._var_name}.log_serial_number();"
