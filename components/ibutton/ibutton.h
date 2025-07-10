@@ -1,6 +1,6 @@
 #include "esphome/components/binary_sensor/binary_sensor.h"
-#include "esphome/components/gpio/base.h"
-#include "esphome/components/onewire/one_wire.h"
+#include "esphome/components/gpio/one_wire/gpio_one_wire.h"
+#include "esphome/components/one_wire/one_wire.h"
 
 namespace esphome {
 namespace ibutton {
